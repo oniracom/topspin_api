@@ -5,7 +5,7 @@ module TopspinApi
     include Pagination
 
     def initialize(api_user, api_key)
-      @prefix = "v1/offers"
+      @prefix = "v1/"
       authenticate(api_user, api_key)
     end
 
@@ -16,8 +16,9 @@ module TopspinApi
       #options[:page] = 1 unless options[:page]
       options[:artist_id] = artist_id
       options[:offer_type] = 'email_for_media'
-      hash = fetch_json("/", options)
-      decorate(hash, hash["offers"])
+      hash = fetch_json("offers", options)
+      #decorate(hash, hash["offers"])
+      hash
     end
 
     # Get detailed information about an offer
