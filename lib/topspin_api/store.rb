@@ -16,7 +16,7 @@ module TopspinApi
       #options[:page] = 1 unless options[:page]
       options[:artist_id] = artist_id
       options[:offer_type] = 'email_for_media'
-      hash = fetch_json("/")
+      hash = fetch_json("/", options)
       decorate(hash, hash["offers"])
     end
 
